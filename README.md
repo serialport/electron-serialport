@@ -1,6 +1,7 @@
-# electron-quick-start
+# electron-serialport
+An example of how to use serialport in an electron app
 
-**Clone and run for a quick way to see Electron in action.**
+**Clone and run for a quick way to see Electron and Serialport in action.**
 
 This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
 
