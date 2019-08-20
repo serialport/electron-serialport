@@ -1,4 +1,7 @@
 # electron-serialport
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/serialport/electron-serialport.svg)](https://greenkeeper.io/)
+
 An example of how to use serialport in an electron app
 
 **Clone and run for a quick way to see Electron and Serialport in action.**
