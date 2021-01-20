@@ -5,19 +5,23 @@
 const serialport = require('serialport')
 const tableify = require('tableify')
 
-serialport.list((err, ports) => {
-  console.log('ports', ports);
-  if (err) {
-    document.getElementById('error').textContent = err.message
-    return
-  } else {
-    document.getElementById('error').textContent = ''
-  }
+async function listSerialPorts() {
+  await serialport.list().then((ports, err) => {
+    if(err) {
+      document.getElementById('error').textContent = err.message
+      return
+    } else {
+      document.getElementById('error').textContent = ''
+    }
+    console.log('ports', ports);
 
-  if (ports.length === 0) {
-    document.getElementById('error').textContent = 'No ports discovered'
-  }
+    if (ports.length === 0) {
+      document.getElementById('error').textContent = 'No ports discovered'
+    }
 
-  tableHTML = tableify(ports)
-  document.getElementById('ports').innerHTML = tableHTML
-})
+    tableHTML = tableify(ports)
+    document.getElementById('ports').innerHTML = tableHTML
+  })
+}
+
+listSerialPorts();
