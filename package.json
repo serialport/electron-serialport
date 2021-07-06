@@ -21,11 +21,11 @@
     "author": "GitHub",
     "license": "CC0-1.0",
     "devDependencies": {
-        "electron": "^11.2.0",
-        "electron-rebuild": "^2.3.4"
+        "electron": "^13.1.6",
+        "electron-rebuild": "^2.3.5"
     },
     "dependencies": {
-        "serialport": "^9.0.6",
+        "serialport": "^9.2.0",
         "tableify": "^1.1.0"
     }
 }
