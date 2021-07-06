@@ -16,8 +16,10 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 1400,
         height: 600,
+        backgroundColor: "#ccc",
         webPreferences: {
             nodeIntegration: true,
+            contextIsolation: false, // workaround to allow use with Electron 12+
             preload: path.join(__dirname, 'preload.js')
         }
     })
