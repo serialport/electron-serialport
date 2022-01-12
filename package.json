@@ -4,8 +4,7 @@
   "description": "A minimal Electron application with node serialport",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "install": "electron-rebuild"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -21,8 +20,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^16.0.5",
-    "electron-rebuild": "^3.2.5"
+    "electron": "^16.0.5"
   },
   "dependencies": {
     "serialport": "^10.0.0",
