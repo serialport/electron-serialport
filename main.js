@@ -1,9 +1,4 @@
-const electron = require('electron')
-    // Module to control application life.
-const app = electron.app
-    // Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
-
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const url = require('url')
 
@@ -14,12 +9,12 @@ let mainWindow
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 1400,
+        width: 800,
         height: 600,
         backgroundColor: "#ccc",
         webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false, // workaround to allow use with Electron 12+
+            nodeIntegration: true, // to allow require
+            contextIsolation: false, // allow use with Electron 12+
             preload: path.join(__dirname, 'preload.js')
         }
     })
@@ -32,7 +27,7 @@ function createWindow() {
     }))
 
     // Open the DevTools.
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function() {
@@ -42,13 +37,6 @@ function createWindow() {
         mainWindow = null
     })
 }
-
-// This is required to be set to false beginning in Electron v9 otherwise
-// the SerialPort module can not be loaded in Renderer processes like we are doing
-// in this example. The linked Github issues says this will be deprecated starting in v10,
-// however it appears to still be changed and working in v11.2.0
-// Relevant discussion: https://github.com/electron/electron/issues/18397
-app.allowRendererProcessReuse=false
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

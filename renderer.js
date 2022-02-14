@@ -2,11 +2,11 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-const serialport = require('serialport')
+const { SerialPort } = require('serialport')
 const tableify = require('tableify')
 
 async function listSerialPorts() {
-  await serialport.list().then((ports, err) => {
+  await SerialPort.list().then((ports, err) => {
     if(err) {
       document.getElementById('error').textContent = err.message
       return
@@ -24,9 +24,13 @@ async function listSerialPorts() {
   })
 }
 
-// Set a timeout that will check for new serialPorts every 2 seconds.
-// This timeout reschedules itself.
-setTimeout(function listPorts() {
+function listPorts() {
   listSerialPorts();
   setTimeout(listPorts, 2000);
-}, 2000);
+}
+
+// Set a timeout that will check for new serialPorts every 2 seconds.
+// This timeout reschedules itself.
+setTimeout(listPorts, 2000);
+
+listSerialPorts()
