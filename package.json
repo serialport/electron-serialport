@@ -20,10 +20,14 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^17.0.0"
+    "electron": "^26.4.0"
   },
   "dependencies": {
     "serialport": "^10.3.0",
     "tableify": "^1.1.1"
+  },
+  "engines": {
+    "node": "18.16.1",
+    "npm": "9.5.1"
   }
 }
